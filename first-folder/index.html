@@ -1,38 +1,485 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>أول موقع إلي</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            direction: rtl;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            padding-top: 100px;
-        }
+<title>وطن ستور</title>
 
-        h1 {
-            color: #168a5b;
-            font-size: 40px;
-        }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        p {
-            font-size: 20px;
-        }
-    </style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f8fa;
+    color: #222;
+}
 
+header {
+    background: #0f5132;
+    color: white;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.cart {
+    background: white;
+    color: #0f5132;
+    padding: 9px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.hero {
+    min-height: 430px;
+    background: linear-gradient(135deg, #0f5132, #198754);
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.hero h1 {
+    font-size: 46px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 650px;
+    line-height: 1.8;
+}
+
+.hero a {
+    margin-top: 25px;
+    background: white;
+    color: #0f5132;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.products-section {
+    padding: 60px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 34px;
+    color: #0f5132;
+}
+
+.section-title p {
+    margin-top: 10px;
+    color: #777;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.product {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,.07);
+    transition: .3s;
+}
+
+.product:hover {
+    transform: translateY(-7px);
+}
+
+.product-icon {
+    height: 150px;
+    background: #ecf7f1;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+.product h3 {
+    margin-bottom: 10px;
+}
+
+.product p {
+    color: #777;
+    line-height: 1.6;
+    min-height: 50px;
+}
+
+.price {
+    display: block;
+    font-size: 23px;
+    font-weight: bold;
+    color: #198754;
+    margin: 18px 0;
+}
+
+.product button {
+    width: 100%;
+    border: none;
+    background: #0f5132;
+    color: white;
+    padding: 13px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.product button:hover {
+    background: #198754;
+}
+
+.features {
+    background: white;
+    padding: 60px 8%;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 25px;
+}
+
+.feature {
+    text-align: center;
+    padding: 25px;
+}
+
+.feature span {
+    font-size: 45px;
+}
+
+.feature h3 {
+    margin: 15px 0 8px;
+}
+
+.checkout {
+    padding: 70px 20px;
+    text-align: center;
+    background: #eaf6ef;
+}
+
+.checkout h2 {
+    color: #0f5132;
+    margin-bottom: 15px;
+}
+
+.checkout button {
+    margin-top: 20px;
+    border: 0;
+    padding: 15px 35px;
+    background: #0f5132;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+footer {
+    background: #10231a;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.notification {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    background: #198754;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    display: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,.2);
+}
+
+@media(max-width:600px) {
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    header {
+        padding: 15px 5%;
+    }
+}
+</style>
 </head>
 
 <body>
-<h1>مرحبا، هذا أول موقع إلي</h1>
-<p>🚀 أنا بدأت أتعلم البرمجة اليوم</p>
 
-<button onclick="alert('أهلاً بيك بعالم البرمجة 🚀')">
-    اضغط هنا
-</button>
+<header>
+    <div class="logo">🛍️ وطن ستور</div>
 
-</body>
+    <div class="cart">
+        السلة 🛒
+        <span id="cartCount">0</span>
+    </div>
+</header>
+
+<section class="hero">
+
+    <h1>مرحبًا بك في وطن ستور</h1>
+
+    <p>
+        متجر إلكتروني عراقي يوفر لك منتجات مختارة
+        بأسعار مناسبة وتجربة تسوق سهلة وسريعة.
+    </p>
+
+    <a href="#products">تصفح المنتجات</a>
+
+</section>
+
+<section class="products-section" id="products">
+
+    <div class="section-title">
+
+        <h2>منتجات وطن ستور</h2>
+
+        <p>
+            اختر المنتج المناسب لك وأضفه إلى سلة التسوق
+        </p>
+
+    </div>
+
+    <div class="products">
+
+        <div class="product">
+
+            <div class="product-icon">⌚</div>
+
+            <h3>ساعة ذكية</h3>
+
+            <p>
+                ساعة أنيقة بميزات ذكية للاستخدام اليومي.
+            </p>
+
+            <span class="price">
+                35,000 د.ع
+            </span>
+
+            <button onclick="addToCart('ساعة ذكية')">
+                أضف إلى السلة
+            </button>
+
+        </div>
+
+        <div class="product">
+
+            <div class="product-icon">🎧</div>
+
+            <h3>سماعات لاسلكية</h3>
+
+            <p>
+                صوت واضح وتصميم مريح للاستخدام الطويل.
+            </p>
+
+            <span class="price">
+                25,000 د.ع
+            </span>
+
+            <button onclick="addToCart('سماعات لاسلكية')">
+                أضف إلى السلة
+            </button>
+
+        </div>
+
+        <div class="product">
+
+            <div class="product-icon">⌨️</div>
+
+            <h3>لوحة مفاتيح</h3>
+
+            <p>
+                تصميم عصري مناسب للعمل والدراسة.
+            </p>
+
+            <span class="price">
+                30,000 د.ع
+            </span>
+
+            <button onclick="addToCart('لوحة مفاتيح')">
+                أضف إلى السلة
+            </button>
+
+        </div>
+
+        <div class="product">
+
+            <div class="product-icon">🔋</div>
+
+            <h3>Power Bank</h3>
+
+            <p>
+                بطارية محمولة تساعدك على البقاء متصلًا طوال اليوم.
+            </p>
+
+            <span class="price">
+                20,000 د.ع
+            </span>
+
+            <button onclick="addToCart('Power Bank')">
+                أضف إلى السلة
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="features">
+
+    <div class="features-grid">
+
+        <div class="feature">
+
+            <span>🚚</span>
+
+            <h3>توصيل سريع</h3>
+
+            <p>
+                توصيل الطلبات بسرعة وأمان.
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <span>💳</span>
+
+            <h3>دفع سهل</h3>
+
+            <p>
+                خيارات دفع مناسبة وسهلة.
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <span>⭐</span>
+
+            <h3>منتجات مختارة</h3>
+
+            <p>
+                نختار المنتجات بعناية لزبائن وطن ستور.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="checkout">
+
+    <h2>
+        جاهز لإكمال طلبك؟
+    </h2>
+
+    <p>
+        المنتجات الموجودة في السلة:
+        <strong id="cartTotal">0</strong>
+    </p>
+
+    <button onclick="checkout()">
+        إتمام الطلب
+    </button>
+
+</section>
+
+<footer>
+
+    <p>
+        © 2026 وطن ستور — جميع الحقوق محفوظة
+    </p>
+
+</footer>
+
+<div
+    class="notification"
+    id="notification">
+</div>
+
+<script>
+
+let cart = 0;
+
+function addToCart(product) {
+
+    cart++;
+
+    document.getElementById("cartCount").innerText = cart;
+
+    document.getElementById("cartTotal").innerText = cart;
+
+    const notification =
+        document.getElementById("notification");
+
+    notification.innerText =
+        "✅ تمت إضافة " + product + " إلى السلة";
+
+    notification.style.display = "block";
+
+    setTimeout(() => {
+
+        notification.style.display = "none";
+
+    }, 2000);
+}
+
+function checkout() {
+
+    if (cart === 0) {
+
+        alert("السلة فارغة 🛒");
+
+    } else {
+
+        alert(
+            "✅ لديك " +
+            cart +
+            " منتجات في السلة.\nسيتم إضافة نظام الطلب الحقيقي لاحقًا."
+        );
+    }
+}
+
+</script>
+
 </body>
 </html>
