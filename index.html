@@ -7,234 +7,369 @@
 <title>وطن ستور</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f7f8fa;
-    color: #222;
+body{
+    font-family:Arial,Tahoma,sans-serif;
+    background:#f5f7f6;
+    color:#222;
 }
 
-header {
-    background: #0f5132;
-    color: white;
-    padding: 18px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+button,input,textarea,select{
+    font-family:inherit;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
+header{
+    background:#0f5132;
+    color:#fff;
+    padding:14px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.cart {
-    background: white;
-    color: #0f5132;
-    padding: 9px 15px;
-    border-radius: 20px;
-    font-weight: bold;
+.logo{
+    font-size:24px;
+    font-weight:bold;
 }
 
-.hero {
-    min-height: 430px;
-    background: linear-gradient(135deg, #0f5132, #198754);
-    color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
+.header-actions{
+    display:flex;
+    gap:8px;
 }
 
-.hero h1 {
-    font-size: 46px;
-    margin-bottom: 15px;
+.header-btn{
+    border:0;
+    background:#fff;
+    color:#0f5132;
+    padding:9px 14px;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-.hero p {
-    font-size: 20px;
-    max-width: 650px;
-    line-height: 1.8;
+.hero{
+    min-height:420px;
+    background:linear-gradient(135deg,#0b3d27,#198754);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
 }
 
-.hero a {
-    margin-top: 25px;
-    background: white;
-    color: #0f5132;
-    text-decoration: none;
-    padding: 14px 28px;
-    border-radius: 30px;
-    font-weight: bold;
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
 }
 
-.products-section {
-    padding: 60px 8%;
+.hero p{
+    font-size:18px;
+    line-height:1.8;
+    max-width:650px;
 }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
+.hero a{
+    display:inline-block;
+    margin-top:25px;
+    background:white;
+    color:#0f5132;
+    padding:13px 28px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
 }
 
-.section-title h2 {
-    font-size: 34px;
-    color: #0f5132;
+.section{
+    padding:60px 6%;
 }
 
-.section-title p {
-    margin-top: 10px;
-    color: #777;
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
 }
 
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 25px;
+.section-title h2{
+    color:#0f5132;
+    font-size:34px;
 }
 
-.product {
-    background: white;
-    border-radius: 18px;
-    padding: 25px;
-    text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,.07);
-    transition: .3s;
+.section-title p{
+    color:#777;
+    margin-top:8px;
 }
 
-.product:hover {
-    transform: translateY(-7px);
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:22px;
 }
 
-.product-icon {
-    height: 150px;
-    background: #ecf7f1;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 70px;
-    margin-bottom: 20px;
+.product{
+    background:#fff;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.07);
 }
 
-.product h3 {
-    margin-bottom: 10px;
+.product-icon{
+    height:150px;
+    background:#eaf6ef;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:70px;
+    margin-bottom:18px;
 }
 
-.product p {
-    color: #777;
-    line-height: 1.6;
-    min-height: 50px;
+.product h3{
+    margin-bottom:8px;
 }
 
-.price {
-    display: block;
-    font-size: 23px;
-    font-weight: bold;
-    color: #198754;
-    margin: 18px 0;
+.product p{
+    color:#777;
+    min-height:45px;
+    line-height:1.6;
 }
 
-.product button {
-    width: 100%;
-    border: none;
-    background: #0f5132;
-    color: white;
-    padding: 13px;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
+.price{
+    display:block;
+    font-size:22px;
+    font-weight:bold;
+    color:#198754;
+    margin:15px 0;
 }
 
-.product button:hover {
-    background: #198754;
+.product button{
+    width:100%;
+    border:0;
+    background:#0f5132;
+    color:white;
+    padding:13px;
+    border-radius:10px;
+    cursor:pointer;
 }
 
-.features {
-    background: white;
-    padding: 60px 8%;
+.product button:hover{
+    background:#198754;
 }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    gap: 25px;
+footer{
+    background:#10251b;
+    color:white;
+    padding:30px;
+    text-align:center;
 }
 
-.feature {
-    text-align: center;
-    padding: 25px;
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:none;
+    z-index:1500;
 }
 
-.feature span {
-    font-size: 45px;
+.overlay.show{
+    display:block;
 }
 
-.feature h3 {
-    margin: 15px 0 8px;
+.modal{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:min(520px,92%);
+    max-height:90vh;
+    overflow-y:auto;
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    z-index:1600;
+    display:none;
 }
 
-.checkout {
-    padding: 70px 20px;
-    text-align: center;
-    background: #eaf6ef;
+.modal.show{
+    display:block;
 }
 
-.checkout h2 {
-    color: #0f5132;
-    margin-bottom: 15px;
+.modal h2{
+    color:#0f5132;
+    margin-bottom:15px;
 }
 
-.checkout button {
-    margin-top: 20px;
-    border: 0;
-    padding: 15px 35px;
-    background: #0f5132;
-    color: white;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 17px;
+.warning{
+    background:#fff3cd;
+    color:#664d03;
+    padding:12px;
+    border-radius:8px;
+    font-size:13px;
+    line-height:1.6;
+    margin-bottom:15px;
 }
 
-footer {
-    background: #10231a;
-    color: white;
-    text-align: center;
-    padding: 30px;
+.form-group{
+    margin-bottom:14px;
 }
 
-.notification {
-    position: fixed;
-    bottom: 25px;
-    left: 25px;
-    background: #198754;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 12px;
-    display: none;
-    box-shadow: 0 5px 20px rgba(0,0,0,.2);
+.form-group label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:6px;
 }
 
-@media(max-width:600px) {
-    .hero h1 {
-        font-size: 34px;
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:9px;
+    outline:none;
+}
+
+.form-group textarea{
+    min-height:80px;
+}
+
+.main-btn{
+    width:100%;
+    border:0;
+    background:#198754;
+    color:white;
+    padding:13px;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:5px;
+}
+
+.secondary-btn{
+    width:100%;
+    border:0;
+    background:#eee;
+    padding:12px;
+    border-radius:10px;
+    margin-top:8px;
+    cursor:pointer;
+}
+
+.cart-item{
+    border-bottom:1px solid #eee;
+    padding:12px 0;
+}
+
+.cart-item-row{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.cart-controls{
+    margin-top:8px;
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.cart-controls button{
+    border:0;
+    width:30px;
+    height:30px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.total-box{
+    background:#eaf6ef;
+    padding:15px;
+    border-radius:10px;
+    margin-top:15px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.account-card{
+    background:#f7f7f7;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:15px;
+    line-height:1.8;
+}
+
+.admin-panel{
+    padding:25px;
+}
+
+.admin-stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.stat{
+    background:#eaf6ef;
+    padding:18px;
+    border-radius:12px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-size:26px;
+    color:#0f5132;
+}
+
+.order{
+    background:#fff;
+    border:1px solid #eee;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:12px;
+}
+
+.order h4{
+    color:#0f5132;
+    margin-bottom:8px;
+}
+
+.notification{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#198754;
+    color:#fff;
+    padding:13px 18px;
+    border-radius:10px;
+    display:none;
+    z-index:3000;
+}
+
+.notification.show{
+    display:block;
+}
+
+@media(max-width:600px){
+    .hero h1{
+        font-size:34px;
     }
 
-    .hero p {
-        font-size: 17px;
+    .header-actions{
+        gap:4px;
     }
 
-    header {
-        padding: 15px 5%;
+    .header-btn{
+        padding:8px 10px;
+        font-size:12px;
     }
 }
 </style>
@@ -243,241 +378,1289 @@ footer {
 <body>
 
 <header>
-    <div class="logo">🛍️ وطن ستور</div>
 
-    <div class="cart">
-        السلة 🛒
-        <span id="cartCount">0</span>
+    <div class="logo">
+        🛍️ وطن ستور
     </div>
+
+    <div class="header-actions">
+
+        <button class="header-btn" onclick="openAccount()">
+            👤 الحساب
+        </button>
+
+        <button class="header-btn" onclick="openCart()">
+            🛒 السلة
+            <span id="cartCount">0</span>
+        </button>
+
+        <button class="header-btn" onclick="openAdminLogin()">
+            ⚙️ الإدارة
+        </button>
+
+    </div>
+
 </header>
 
 <section class="hero">
 
-    <h1>مرحبًا بك في وطن ستور</h1>
+    <div>
 
-    <p>
-        متجر إلكتروني عراقي يوفر لك منتجات مختارة
-        بأسعار مناسبة وتجربة تسوق سهلة وسريعة.
-    </p>
+        <h1>
+            وطن ستور 🇮🇶
+        </h1>
 
-    <a href="#products">تصفح المنتجات</a>
+        <p>
+            متجر إلكتروني عراقي.
+            اختر منتجاتك، أنشئ حسابك،
+            وأرسل طلبك مع الدفع عند الاستلام.
+        </p>
+
+        <a href="#products">
+            تسوق الآن
+        </a>
+
+    </div>
 
 </section>
 
-<section class="products-section" id="products">
+<section class="section" id="products">
 
     <div class="section-title">
 
-        <h2>منتجات وطن ستور</h2>
+        <h2>
+            منتجات وطن ستور
+        </h2>
 
         <p>
-            اختر المنتج المناسب لك وأضفه إلى سلة التسوق
+            منتجات مختارة بأسعار مناسبة
         </p>
 
     </div>
 
-    <div class="products">
-
-        <div class="product">
-
-            <div class="product-icon">⌚</div>
-
-            <h3>ساعة ذكية</h3>
-
-            <p>
-                ساعة أنيقة بميزات ذكية للاستخدام اليومي.
-            </p>
-
-            <span class="price">
-                35,000 د.ع
-            </span>
-
-            <button onclick="addToCart('ساعة ذكية')">
-                أضف إلى السلة
-            </button>
-
-        </div>
-
-        <div class="product">
-
-            <div class="product-icon">🎧</div>
-
-            <h3>سماعات لاسلكية</h3>
-
-            <p>
-                صوت واضح وتصميم مريح للاستخدام الطويل.
-            </p>
-
-            <span class="price">
-                25,000 د.ع
-            </span>
-
-            <button onclick="addToCart('سماعات لاسلكية')">
-                أضف إلى السلة
-            </button>
-
-        </div>
-
-        <div class="product">
-
-            <div class="product-icon">⌨️</div>
-
-            <h3>لوحة مفاتيح</h3>
-
-            <p>
-                تصميم عصري مناسب للعمل والدراسة.
-            </p>
-
-            <span class="price">
-                30,000 د.ع
-            </span>
-
-            <button onclick="addToCart('لوحة مفاتيح')">
-                أضف إلى السلة
-            </button>
-
-        </div>
-
-        <div class="product">
-
-            <div class="product-icon">🔋</div>
-
-            <h3>Power Bank</h3>
-
-            <p>
-                بطارية محمولة تساعدك على البقاء متصلًا طوال اليوم.
-            </p>
-
-            <span class="price">
-                20,000 د.ع
-            </span>
-
-            <button onclick="addToCart('Power Bank')">
-                أضف إلى السلة
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="features">
-
-    <div class="features-grid">
-
-        <div class="feature">
-
-            <span>🚚</span>
-
-            <h3>توصيل سريع</h3>
-
-            <p>
-                توصيل الطلبات بسرعة وأمان.
-            </p>
-
-        </div>
-
-        <div class="feature">
-
-            <span>💳</span>
-
-            <h3>دفع سهل</h3>
-
-            <p>
-                خيارات دفع مناسبة وسهلة.
-            </p>
-
-        </div>
-
-        <div class="feature">
-
-            <span>⭐</span>
-
-            <h3>منتجات مختارة</h3>
-
-            <p>
-                نختار المنتجات بعناية لزبائن وطن ستور.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="checkout">
-
-    <h2>
-        جاهز لإكمال طلبك؟
-    </h2>
-
-    <p>
-        المنتجات الموجودة في السلة:
-        <strong id="cartTotal">0</strong>
-    </p>
-
-    <button onclick="checkout()">
-        إتمام الطلب
-    </button>
+    <div class="products" id="productsContainer"></div>
 
 </section>
 
 <footer>
-
-    <p>
-        © 2026 وطن ستور — جميع الحقوق محفوظة
-    </p>
-
+    © 2026 وطن ستور — جميع الحقوق محفوظة
 </footer>
 
-<div
-    class="notification"
-    id="notification">
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<!-- الحساب -->
+
+<div class="modal" id="accountModal">
+
+    <h2>
+        👤 حساب الزبون
+    </h2>
+
+    <div id="accountContent"></div>
+
+    <button class="secondary-btn" onclick="closeAll()">
+        إغلاق
+    </button>
+
 </div>
+
+<!-- التسجيل -->
+
+<div class="modal" id="registerModal">
+
+    <h2>
+        إنشاء حساب
+    </h2>
+
+    <div class="form-group">
+        <label>الاسم الكامل</label>
+        <input id="regName">
+    </div>
+
+    <div class="form-group">
+        <label>رقم الهاتف</label>
+        <input id="regPhone" type="tel">
+    </div>
+
+    <div class="form-group">
+        <label>البريد الإلكتروني</label>
+        <input id="regEmail" type="email">
+    </div>
+
+    <div class="form-group">
+        <label>كلمة المرور</label>
+        <input id="regPassword" type="password">
+    </div>
+
+    <div class="form-group">
+        <label>المحافظة</label>
+        <input id="regCity">
+    </div>
+
+    <div class="form-group">
+        <label>العنوان</label>
+        <textarea id="regAddress"></textarea>
+    </div>
+
+    <button class="main-btn" onclick="registerUser()">
+        إنشاء الحساب
+    </button>
+
+    <button class="secondary-btn" onclick="closeAll()">
+        إلغاء
+    </button>
+
+</div>
+
+<!-- تسجيل الدخول -->
+
+<div class="modal" id="loginModal">
+
+    <h2>
+        تسجيل الدخول
+    </h2>
+
+    <div class="form-group">
+        <label>رقم الهاتف أو البريد</label>
+        <input id="loginUser">
+    </div>
+
+    <div class="form-group">
+        <label>كلمة المرور</label>
+        <input id="loginPassword" type="password">
+    </div>
+
+    <button class="main-btn" onclick="loginUser()">
+        دخول
+    </button>
+
+    <button class="secondary-btn" onclick="showRegister()">
+        إنشاء حساب جديد
+    </button>
+
+</div>
+
+<!-- السلة -->
+
+<div class="modal" id="cartModal">
+
+    <h2>
+        🛒 سلة التسوق
+    </h2>
+
+    <div id="cartItems"></div>
+
+    <div class="total-box">
+        المجموع:
+        <span id="cartTotal">0</span>
+        د.ع
+    </div>
+
+    <button class="main-btn" onclick="checkout()">
+        متابعة الطلب
+    </button>
+
+    <button class="secondary-btn" onclick="closeAll()">
+        إغلاق
+    </button>
+
+</div>
+
+<!-- تأكيد الطلب -->
+
+<div class="modal" id="checkoutModal">
+
+    <h2>
+        تأكيد الطلب
+    </h2>
+
+    <div class="account-card" id="checkoutAccount"></div>
+
+    <div class="form-group">
+
+        <label>
+            طريقة الدفع
+        </label>
+
+        <select id="paymentMethod">
+
+            <option value="الدفع عند الاستلام">
+                💵 الدفع عند الاستلام
+            </option>
+
+        </select>
+
+    </div>
+
+    <div class="form-group">
+        <label>ملاحظات الطلب</label>
+        <textarea id="orderNotes"
+        placeholder="اختياري"></textarea>
+    </div>
+
+    <div class="total-box">
+        المجموع:
+        <span id="checkoutTotal">0</span>
+        د.ع
+    </div>
+
+    <button class="main-btn" onclick="placeOrder()">
+        ✅ تأكيد الطلب
+    </button>
+
+    <button class="secondary-btn" onclick="closeAll()">
+        إلغاء
+    </button>
+
+</div>
+
+<!-- تسجيل المدير -->
+
+<div class="modal" id="adminLoginModal">
+
+    <h2>
+        ⚙️ دخول المدير
+    </h2>
+
+    <div class="warning">
+        هذا تسجيل دخول تجريبي فقط لأن الموقع يعمل
+        حاليًا على GitHub Pages.
+        لا تستخدم بيانات حساسة أو كلمة مرور حقيقية.
+    </div>
+
+    <div class="form-group">
+        <label>اسم المستخدم</label>
+        <input id="adminUsername">
+    </div>
+
+    <div class="form-group">
+        <label>كلمة المرور</label>
+        <input id="adminPassword" type="password">
+    </div>
+
+    <button class="main-btn" onclick="adminLogin()">
+        دخول
+    </button>
+
+    <button class="secondary-btn" onclick="closeAll()">
+        إلغاء
+    </button>
+
+</div>
+
+<!-- لوحة المدير -->
+
+<div class="modal" id="adminPanelModal">
+
+    <h2>
+        ⚙️ لوحة إدارة وطن ستور
+    </h2>
+
+    <div class="warning">
+        لوحة تجريبية. البيانات محفوظة فقط داخل
+        متصفح الجهاز الحالي.
+    </div>
+
+    <div class="admin-stats">
+
+        <div class="stat">
+            <strong id="adminOrdersCount">
+                0
+            </strong>
+            الطلبات
+        </div>
+
+        <div class="stat">
+            <strong id="adminSalesTotal">
+                0
+            </strong>
+            د.ع
+        </div>
+
+    </div>
+
+    <h3>
+        الطلبات
+    </h3>
+
+    <br>
+
+    <div id="adminOrders"></div>
+
+    <button class="secondary-btn" onclick="adminLogout()">
+        تسجيل خروج المدير
+    </button>
+
+</div>
+
+<div class="notification" id="notification"></div>
 
 <script>
 
-let cart = 0;
+/* =========================
+   المنتجات
+========================= */
 
-function addToCart(product) {
+const products = [
 
-    cart++;
+    {
+        id:1,
+        name:"ساعة ذكية",
+        description:"ساعة أنيقة للاستخدام اليومي.",
+        price:35000,
+        icon:"⌚"
+    },
 
-    document.getElementById("cartCount").innerText = cart;
+    {
+        id:2,
+        name:"سماعات لاسلكية",
+        description:"صوت واضح وتصميم مريح.",
+        price:25000,
+        icon:"🎧"
+    },
 
-    document.getElementById("cartTotal").innerText = cart;
+    {
+        id:3,
+        name:"لوحة مفاتيح",
+        description:"مناسبة للعمل والدراسة.",
+        price:30000,
+        icon:"⌨️"
+    },
 
-    const notification =
-        document.getElementById("notification");
+    {
+        id:4,
+        name:"Power Bank",
+        description:"بطارية محمولة للشحن أثناء التنقل.",
+        price:20000,
+        icon:"🔋"
+    }
 
-    notification.innerText =
-        "✅ تمت إضافة " + product + " إلى السلة";
+];
 
-    notification.style.display = "block";
+/* =========================
+   بيانات المدير التجريبية
+========================= */
 
-    setTimeout(() => {
+const DEMO_ADMIN_USERNAME = "admin";
 
-        notification.style.display = "none";
+const DEMO_ADMIN_PASSWORD = "watan2026";
 
-    }, 2000);
+/*
+مهم:
+هذه البيانات مرئية داخل الكود.
+هي فقط للتعلم والتجربة.
+*/
+
+/* =========================
+   المتغيرات
+========================= */
+
+let cart =
+JSON.parse(
+    localStorage.getItem("watanCart")
+) || [];
+
+let currentUser =
+JSON.parse(
+    localStorage.getItem("watanCurrentUser")
+) || null;
+
+let orders =
+JSON.parse(
+    localStorage.getItem("watanOrders")
+) || [];
+
+/* =========================
+   المنتجات
+========================= */
+
+function renderProducts(){
+
+    const container =
+    document.getElementById(
+        "productsContainer"
+    );
+
+    container.innerHTML =
+    products.map(product => `
+
+        <div class="product">
+
+            <div class="product-icon">
+                ${product.icon}
+            </div>
+
+            <h3>
+                ${product.name}
+            </h3>
+
+            <p>
+                ${product.description}
+            </p>
+
+            <span class="price">
+                ${formatPrice(product.price)}
+                د.ع
+            </span>
+
+            <button
+            onclick="addToCart(${product.id})">
+
+                أضف إلى السلة
+
+            </button>
+
+        </div>
+
+    `).join("");
+
 }
 
-function checkout() {
+/* =========================
+   الحساب
+========================= */
 
-    if (cart === 0) {
+function openAccount(){
 
-        alert("السلة فارغة 🛒");
+    if(currentUser){
 
-    } else {
+        document.getElementById(
+            "accountContent"
+        ).innerHTML = `
+
+            <div class="account-card">
+
+                <strong>
+                    ${currentUser.name}
+                </strong>
+
+                <br>
+
+                📱 ${currentUser.phone}
+
+                <br>
+
+                📧 ${currentUser.email}
+
+                <br>
+
+                📍 ${currentUser.city}
+
+                <br>
+
+                🏠 ${currentUser.address}
+
+            </div>
+
+            <button
+            class="main-btn"
+            onclick="logoutUser()">
+
+                تسجيل الخروج
+
+            </button>
+
+        `;
+
+        showModal("accountModal");
+
+    }else{
+
+        showModal("loginModal");
+
+    }
+
+}
+
+function showRegister(){
+
+    closeAll();
+
+    showModal("registerModal");
+
+}
+
+function registerUser(){
+
+    const name =
+    document.getElementById(
+        "regName"
+    ).value.trim();
+
+    const phone =
+    document.getElementById(
+        "regPhone"
+    ).value.trim();
+
+    const email =
+    document.getElementById(
+        "regEmail"
+    ).value.trim();
+
+    const password =
+    document.getElementById(
+        "regPassword"
+    ).value;
+
+    const city =
+    document.getElementById(
+        "regCity"
+    ).value.trim();
+
+    const address =
+    document.getElementById(
+        "regAddress"
+    ).value.trim();
+
+    if(
+        !name ||
+        !phone ||
+        !email ||
+        !password ||
+        !city ||
+        !address
+    ){
 
         alert(
-            "✅ لديك " +
-            cart +
-            " منتجات في السلة.\nسيتم إضافة نظام الطلب الحقيقي لاحقًا."
+            "يرجى إكمال جميع معلومات الحساب."
         );
+
+        return;
     }
+
+    const user = {
+
+        name,
+        phone,
+        email,
+        password,
+        city,
+        address
+
+    };
+
+    /*
+    تجريبي فقط:
+    لا تحفظ كلمات المرور بهذه الطريقة
+    في متجر حقيقي.
+    */
+
+    localStorage.setItem(
+        "watanUser",
+        JSON.stringify(user)
+    );
+
+    currentUser = user;
+
+    localStorage.setItem(
+        "watanCurrentUser",
+        JSON.stringify(user)
+    );
+
+    closeAll();
+
+    notify(
+        "✅ تم إنشاء الحساب"
+    );
+
 }
+
+function loginUser(){
+
+    const login =
+    document.getElementById(
+        "loginUser"
+    ).value.trim();
+
+    const password =
+    document.getElementById(
+        "loginPassword"
+    ).value;
+
+    const storedUser =
+    JSON.parse(
+        localStorage.getItem(
+            "watanUser"
+        )
+    );
+
+    if(
+        storedUser &&
+        (
+            storedUser.phone === login ||
+            storedUser.email === login
+        ) &&
+        storedUser.password === password
+    ){
+
+        currentUser =
+        storedUser;
+
+        localStorage.setItem(
+            "watanCurrentUser",
+            JSON.stringify(storedUser)
+        );
+
+        closeAll();
+
+        notify(
+            "✅ تم تسجيل الدخول"
+        );
+
+    }else{
+
+        alert(
+            "بيانات الدخول غير صحيحة."
+        );
+
+    }
+
+}
+
+function logoutUser(){
+
+    currentUser = null;
+
+    localStorage.removeItem(
+        "watanCurrentUser"
+    );
+
+    closeAll();
+
+    notify(
+        "تم تسجيل الخروج"
+    );
+
+}
+
+/* =========================
+   السلة
+========================= */
+
+function addToCart(id){
+
+    const product =
+    products.find(
+        product =>
+        product.id === id
+    );
+
+    const existing =
+    cart.find(
+        item =>
+        item.id === id
+    );
+
+    if(existing){
+
+        existing.quantity++;
+
+    }else{
+
+        cart.push({
+            ...product,
+            quantity:1
+        });
+
+    }
+
+    saveCart();
+
+    notify(
+        "✅ تمت الإضافة للسلة"
+    );
+
+}
+
+function saveCart(){
+
+    localStorage.setItem(
+        "watanCart",
+        JSON.stringify(cart)
+    );
+
+    renderCart();
+
+}
+
+function renderCart(){
+
+    const container =
+    document.getElementById(
+        "cartItems"
+    );
+
+    if(cart.length === 0){
+
+        container.innerHTML =
+        "<p>السلة فارغة 🛒</p>";
+
+    }else{
+
+        container.innerHTML =
+        cart.map(item => `
+
+            <div class="cart-item">
+
+                <div class="cart-item-row">
+
+                    <strong>
+                        ${item.icon}
+                        ${item.name}
+                    </strong>
+
+                    <strong>
+                        ${formatPrice(
+                            item.price *
+                            item.quantity
+                        )}
+                        د.ع
+                    </strong>
+
+                </div>
+
+                <div class="cart-controls">
+
+                    <button
+                    onclick="changeQuantity(
+                        ${item.id},
+                        1
+                    )">
+
+                        +
+
+                    </button>
+
+                    <span>
+                        ${item.quantity}
+                    </span>
+
+                    <button
+                    onclick="changeQuantity(
+                        ${item.id},
+                        -1
+                    )">
+
+                        -
+                    </button>
+
+                    <button
+                    onclick="removeFromCart(
+                        ${item.id}
+                    )">
+
+                        🗑️
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `).join("");
+
+    }
+
+    document.getElementById(
+        "cartCount"
+    ).innerText =
+    getCartCount();
+
+    document.getElementById(
+        "cartTotal"
+    ).innerText =
+    formatPrice(
+        getCartTotal()
+    );
+
+}
+
+function changeQuantity(
+    id,
+    change
+){
+
+    const item =
+    cart.find(
+        item =>
+        item.id === id
+    );
+
+    if(!item) return;
+
+    item.quantity += change;
+
+    if(item.quantity <= 0){
+
+        cart =
+        cart.filter(
+            item =>
+            item.id !== id
+        );
+
+    }
+
+    saveCart();
+
+}
+
+function removeFromCart(id){
+
+    cart =
+    cart.filter(
+        item =>
+        item.id !== id
+    );
+
+    saveCart();
+
+}
+
+function getCartTotal(){
+
+    return cart.reduce(
+
+        (total,item) =>
+
+        total +
+        item.price *
+        item.quantity,
+
+        0
+
+    );
+
+}
+
+function getCartCount(){
+
+    return cart.reduce(
+
+        (total,item) =>
+
+        total +
+        item.quantity,
+
+        0
+
+    );
+
+}
+
+function openCart(){
+
+    renderCart();
+
+    showModal(
+        "cartModal"
+    );
+
+}
+
+/* =========================
+   الطلب
+========================= */
+
+function checkout(){
+
+    if(cart.length === 0){
+
+        alert(
+            "السلة فارغة."
+        );
+
+        return;
+    }
+
+    if(!currentUser){
+
+        closeAll();
+
+        alert(
+            "يجب تسجيل الدخول أو إنشاء حساب أولًا."
+        );
+
+        showModal(
+            "loginModal"
+        );
+
+        return;
+    }
+
+    document.getElementById(
+        "checkoutAccount"
+    ).innerHTML = `
+
+        👤 ${currentUser.name}
+
+        <br>
+
+        📱 ${currentUser.phone}
+
+        <br>
+
+        📍 ${currentUser.city}
+
+        <br>
+
+        🏠 ${currentUser.address}
+
+    `;
+
+    document.getElementById(
+        "checkoutTotal"
+    ).innerText =
+    formatPrice(
+        getCartTotal()
+    );
+
+    closeAll();
+
+    showModal(
+        "checkoutModal"
+    );
+
+}
+
+function placeOrder(){
+
+    const payment =
+    document.getElementById(
+        "paymentMethod"
+    ).value;
+
+    const notes =
+    document.getElementById(
+        "orderNotes"
+    ).value.trim();
+
+    const order = {
+
+        id:
+        Date.now(),
+
+        date:
+        new Date()
+        .toLocaleString("ar-IQ"),
+
+        customer:{
+            name:currentUser.name,
+            phone:currentUser.phone,
+            city:currentUser.city,
+            address:currentUser.address
+        },
+
+        items:[
+            ...cart
+        ],
+
+        total:
+        getCartTotal(),
+
+        payment,
+
+        notes,
+
+        status:
+        "طلب جديد"
+
+    };
+
+    orders.unshift(
+        order
+    );
+
+    localStorage.setItem(
+        "watanOrders",
+        JSON.stringify(orders)
+    );
+
+    cart = [];
+
+    saveCart();
+
+    closeAll();
+
+    alert(
+        "✅ تم تسجيل طلبك بنجاح\n\nطريقة الدفع: الدفع عند الاستلام"
+    );
+
+}
+
+/* =========================
+   المدير
+========================= */
+
+function openAdminLogin(){
+
+    showModal(
+        "adminLoginModal"
+    );
+
+}
+
+function adminLogin(){
+
+    const username =
+    document.getElementById(
+        "adminUsername"
+    ).value;
+
+    const password =
+    document.getElementById(
+        "adminPassword"
+    ).value;
+
+    if(
+        username ===
+        DEMO_ADMIN_USERNAME
+        &&
+        password ===
+        DEMO_ADMIN_PASSWORD
+    ){
+
+        sessionStorage.setItem(
+            "watanAdmin",
+            "true"
+        );
+
+        closeAll();
+
+        openAdminPanel();
+
+    }else{
+
+        alert(
+            "بيانات المدير غير صحيحة."
+        );
+
+    }
+
+}
+
+function openAdminPanel(){
+
+    if(
+        sessionStorage.getItem(
+            "watanAdmin"
+        ) !== "true"
+    ){
+
+        openAdminLogin();
+
+        return;
+
+    }
+
+    renderAdmin();
+
+    showModal(
+        "adminPanelModal"
+    );
+
+}
+
+function renderAdmin(){
+
+    orders =
+    JSON.parse(
+        localStorage.getItem(
+            "watanOrders"
+        )
+    ) || [];
+
+    document.getElementById(
+        "adminOrdersCount"
+    ).innerText =
+    orders.length;
+
+    const totalSales =
+    orders.reduce(
+
+        (total,order) =>
+        total + order.total,
+
+        0
+
+    );
+
+    document.getElementById(
+        "adminSalesTotal"
+    ).innerText =
+    formatPrice(totalSales);
+
+    const container =
+    document.getElementById(
+        "adminOrders"
+    );
+
+    if(orders.length === 0){
+
+        container.innerHTML =
+        "<p>لا توجد طلبات حاليًا.</p>";
+
+        return;
+
+    }
+
+    container.innerHTML =
+    orders.map(order => `
+
+        <div class="order">
+
+            <h4>
+                طلب #${order.id}
+            </h4>
+
+            <p>
+                👤 ${order.customer.name}
+            </p>
+
+            <p>
+                📱 ${order.customer.phone}
+            </p>
+
+            <p>
+                📍 ${order.customer.city}
+            </p>
+
+            <p>
+                🏠 ${order.customer.address}
+            </p>
+
+            <p>
+                💵 ${order.payment}
+            </p>
+
+            <p>
+                💰
+                ${formatPrice(order.total)}
+                د.ع
+            </p>
+
+            <p>
+                📅 ${order.date}
+            </p>
+
+            <br>
+
+            <strong>
+                المنتجات:
+            </strong>
+
+            ${order.items.map(item => `
+
+                <p>
+                    ${item.name}
+                    × ${item.quantity}
+                </p>
+
+            `).join("")}
+
+        </div>
+
+    `).join("");
+
+}
+
+function adminLogout(){
+
+    sessionStorage.removeItem(
+        "watanAdmin"
+    );
+
+    closeAll();
+
+    notify(
+        "تم تسجيل خروج المدير"
+    );
+
+}
+
+/* =========================
+   الأدوات
+========================= */
+
+function showModal(id){
+
+    closeAll();
+
+    document.getElementById(
+        id
+    ).classList.add(
+        "show"
+    );
+
+    document.getElementById(
+        "overlay"
+    ).classList.add(
+        "show"
+    );
+
+}
+
+function closeAll(){
+
+    document.querySelectorAll(
+        ".modal"
+    ).forEach(
+        modal =>
+        modal.classList.remove(
+            "show"
+        )
+    );
+
+    document.getElementById(
+        "overlay"
+    ).classList.remove(
+        "show"
+    );
+
+}
+
+function formatPrice(number){
+
+    return Number(number)
+    .toLocaleString(
+        "en-US"
+    );
+
+}
+
+function notify(message){
+
+    const box =
+    document.getElementById(
+        "notification"
+    );
+
+    box.innerText =
+    message;
+
+    box.classList.add(
+        "show"
+    );
+
+    setTimeout(
+        () => {
+
+            box.classList.remove(
+                "show"
+            );
+
+        },
+        2200
+    );
+
+}
+
+/* =========================
+   التشغيل
+========================= */
+
+renderProducts();
+
+renderCart();
 
 </script>
 
