@@ -1,0 +1,7 @@
+{
+  "name": "ahmed-albadr-cloudflare-loader",
+  "private": true,
+  "scripts": {
+    "prepare:portfolio": "bash prepare-portfolio.sh"
+  }
+}
