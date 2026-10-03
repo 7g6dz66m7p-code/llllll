@@ -1,6 +1,11 @@
 name: Deploy Ahmed Portfolio to Cloudflare
 
 on:
+  push:
+    branches:
+      - ahmed-portfolio-cloudflare
+    paths:
+      - ahmed-albadr-portfolio-cloudflare-ready.zip
   workflow_dispatch:
 
 permissions:
