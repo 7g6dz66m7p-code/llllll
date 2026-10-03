@@ -1,0 +1,48 @@
+name: Deploy Ahmed Portfolio Cloudflare Fixed
+
+on:
+  push:
+    branches:
+      - ahmed-portfolio-cloudflare
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout deployment branch
+        uses: actions/checkout@v4
+        with:
+          ref: ahmed-portfolio-cloudflare
+
+      - name: Extract portfolio project
+        run: |
+          test -f ahmed-albadr-portfolio-cloudflare-ready.zip
+          unzip -q -o ahmed-albadr-portfolio-cloudflare-ready.zip
+          test -f ahmed-albadr-portfolio/package.json
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: ahmed-albadr-portfolio/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ahmed-albadr-portfolio
+        run: npm ci
+
+      - name: Install Cloudflare PostgreSQL compatibility
+        working-directory: ahmed-albadr-portfolio
+        run: npm install --no-save pg-cloudflare@1.4.0
+
+      - name: Deploy to Cloudflare Workers
+        working-directory: ahmed-albadr-portfolio
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: f6f3db35c9b574d0a311ce92961d5025
+          NEXT_PUBLIC_SITE_URL: https://ahmed-albadr-portfolio.gd872dj8kk.workers.dev
+        run: npx wrangler@latest deploy
