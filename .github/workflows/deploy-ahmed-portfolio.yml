@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - ahmed-portfolio-cloudflare
-    paths:
-      - ahmed-albadr-portfolio-cloudflare-ready.zip\n      - .github/workflows/deploy-ahmed-portfolio.yml
   workflow_dispatch:
 
 permissions:
@@ -18,6 +16,8 @@ jobs:
     steps:
       - name: Checkout deployment branch
         uses: actions/checkout@v4
+        with:
+          ref: ahmed-portfolio-cloudflare
 
       - name: Extract portfolio project
         shell: bash
