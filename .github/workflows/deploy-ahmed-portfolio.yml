@@ -1,0 +1,46 @@
+name: Deploy Ahmed Portfolio to Cloudflare
+
+on:
+  push:
+    branches:
+      - ahmed-portfolio-cloudflare
+    paths:
+      - ahmed-albadr-portfolio-cloudflare-ready.zip\n      - .github/workflows/deploy-ahmed-portfolio.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout deployment branch
+        uses: actions/checkout@v4
+
+      - name: Extract portfolio project
+        shell: bash
+        run: |
+          test -f ahmed-albadr-portfolio-cloudflare-ready.zip
+          unzip -q -o ahmed-albadr-portfolio-cloudflare-ready.zip
+          test -f ahmed-albadr-portfolio/package.json
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: ahmed-albadr-portfolio/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ahmed-albadr-portfolio
+        run: npm ci
+
+      - name: Deploy to Cloudflare Workers
+        working-directory: ahmed-albadr-portfolio
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: f6f3db35c9b574d0a311ce92961d5025
+          NEXT_PUBLIC_SITE_URL: https://ahmed-albadr-portfolio.gd872dj8kk.workers.dev
+        run: npx wrangler@latest deploy --yes
