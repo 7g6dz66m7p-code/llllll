@@ -42,22 +42,7 @@ jobs:
       - name: Patch Next.js tracing for pg-cloudflare
         working-directory: ahmed-albadr-portfolio
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          p = Path("next.config.ts")
-          s = p.read_text()
-          marker = "const nextConfig: NextConfig = {"
-          insert = """const nextConfig: NextConfig = {
-  outputFileTracingIncludes: {
-    "**/*": [
-      "./node_modules/pg-cloudflare/dist/**",
-      "./node_modules/pg-cloudflare/esm/**",
-    ],
-  },"""
-          if "outputFileTracingIncludes" not in s:
-              s = s.replace(marker, insert, 1)
-              p.write_text(s)
-          PY
+          python -c 'from pathlib import Path; p=Path("next.config.ts"); s=p.read_text(); marker="const nextConfig: NextConfig = {"; insert="const nextConfig: NextConfig = {\n  outputFileTracingIncludes: {\n    \"**/*\": [\n      \"./node_modules/pg-cloudflare/dist/**\",\n      \"./node_modules/pg-cloudflare/esm/**\",\n    ],\n  },"; p.write_text(s if "outputFileTracingIncludes" in s else s.replace(marker, insert, 1))'
 
       - name: Deploy to Cloudflare Workers
         working-directory: ahmed-albadr-portfolio
