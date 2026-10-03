@@ -43,4 +43,4 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: f6f3db35c9b574d0a311ce92961d5025
           NEXT_PUBLIC_SITE_URL: https://ahmed-albadr-portfolio.gd872dj8kk.workers.dev
-        run: npx wrangler@latest deploy --yes
+        run: npx wrangler@latest deploy
